@@ -1,0 +1,201 @@
+version: 2
+
+models:
+  - name: stg_users
+    description: "Staged users table."
+    columns:
+      - name: user_guid
+        description: "User GUID. The primary key for this table."
+        tests:
+          - unique
+          - not_null
+      - name: address_guid
+        description: "Address GUID."
+        tests:
+          - not_null
+      - name: first_name
+        description: "First name."
+        tests:
+          - not_null
+      - name: last_name
+        description: "Last name."
+        tests:
+          - unique
+          - not_null
+      - name: email
+        description: "Email."
+        tests:
+          - unique
+          - not_null
+      - name: phone_number
+        description: "Phone Number."
+        tests:
+          - unique
+          - not_null
+      - name: created_at_utc
+        description: "User creation time (UTC)."
+        tests:
+          - not_null
+      - name: updated_at_utc
+        description: "User last update time (UTC)"
+        tests:
+          - not_null
+  - name: stg_addresses
+    description: "Staged addresses table."
+    columns:
+      - name: address_guid
+        description: "Address GUID. The primary key for this table."
+        tests:
+          - unique
+          - not_null
+      - name: address
+        description: "Address."
+        tests:
+          - not_null
+      - name: zipcode
+        description: "Zip Code."
+        tests:
+          - not_null
+      - name: state
+        description: "State."
+        tests:
+          - not_null
+      - name: country
+        description: "Country."
+        tests:
+          - not_null
+  - name: stg_events
+    description: "Staged events table."
+    columns:
+      - name: event_guid
+        description: "Event GUID. The primary key for this table."
+        tests:
+          - unique
+          - not_null
+      - name: session_guid
+        description: "Session GUID."
+        tests:
+          - not_null
+      - name: user_guid
+        description: "User GUID."
+        tests:
+          - not_null
+      - name: page_url
+        description: "Page URL."
+        tests:
+          - not_null
+      - name: created_at_utc
+        description: "Event creation time (UTC)."
+        tests:
+          - not_null
+      - name: event_type
+        description: "Event Type."
+        tests:
+          - not_null
+      - name: order_guid
+        description: "Order GUID."
+        tests:
+      - name: product_guid
+        description: "Product GUID."
+        tests:
+  - name: stg_order_items
+    description: "Staged order items."
+    columns:
+      - name: order_guid
+        description: "Order GUID. The primary key for this table."
+        tests:
+          - not_null
+      - name: product_guid
+        description: "Product GUID."
+        tests:
+          - not_null
+      - name: quantity
+        description: "Product quantity."
+        tests:
+          - not_null
+  - name: stg_orders
+    description: "Staged orders."
+    columns:
+      - name: order_guid
+        description: "Order GUID. The primary key for this table."
+        tests:
+          - unique
+          - not_null
+      - name: user_guid
+        description: "User GUID."
+        tests:
+          - not_null
+      - name: promo_type
+        description: "Promo Type."
+        tests:
+      - name: address_guid
+        description: "Address GUID."
+        tests:
+          - not_null
+      - name: created_at_utc
+        description: "Order creation time (UTC)."
+        tests:
+          - not_null
+      - name: order_cost
+        description: "Order Cost."
+        tests:
+          - not_null
+      - name: shipping_cost
+        description: "Shipping Cost."
+        tests:
+          - not_null
+      - name: order_total
+        description: "Order Total."
+        tests:
+          - not_null
+      - name: tracking_guid
+        description: "Tracking GUID."
+        tests:
+          - unique
+      - name: shipping_service
+        description: "Shipping Service."
+      - name: estimated_delivery_at_utc
+        description: "Estimated time of delivery (UTC)."
+      - name: delivered_at_utc
+        description: "Actual time of delivery (UTC)."
+      - name: status
+        description: "Order status."
+        tests:
+          - not_null
+  - name: stg_products
+    description: "Staged products."
+    columns:
+      - name: product_guid
+        description: "Product GUID. The primary key for this table."
+        tests:
+          - unique
+          - not_null
+      - name: name
+        description: "Product name."
+        tests:
+          - unique
+          - not_null
+      - name: price
+        description: "Price."
+        tests:
+          - not_null
+      - name: inventory
+        description: "Inventory"
+        tests:
+          - not_null
+  - name: stg_promos
+    description: "Staged promos."
+    columns:
+      - name: promo_type
+        description: "Promo type. The primary key for this table."
+        tests:
+          - unique
+          - not_null
+      - name: discount
+        description: "Discount amount."
+        tests:
+          - not_null
+      - name: status
+        description: "Status."
+        tests:
+          - not_null
