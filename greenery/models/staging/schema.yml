@@ -20,7 +20,6 @@ models:
       - name: last_name
         description: "Last name."
         tests:
-          - unique
           - not_null
       - name: email
         description: "Email."
