@@ -2,6 +2,36 @@
 
 ## Assignments
 
+### Week 2
+
+Repeat user rate:
+```sql
+select percent_with_n_or_more_orders 
+from dbt_chris_r.user_order_count_facts
+where order_count=2
+```
+Answer: 79.84%
+
+Who is unlikely to order again:
+* Users with only one order
+* Users with a long time since their last purchase. This is tracked in the users fact Mart.
+
+Added models:
+* `core/dim_hourly_orders` to track how many orders in each hour and what ratio have been fulfilled.
+* `core/dim_hourly_sessions` to track how many sessions per hour to assess load on infrasturcure
+* `core/dim_users` tracking last order, total revenue, promo use.
+* `marketing/order_facts` to answer marketing questions and merge in how many items ordered.
+* `marketing/user_order_count_facts` to answer the specific marketing assignment question.
+* `product/low_inventory_facts` to see what inventory needs to be re-ordered.
+* `product/product_view_facts` to see what products are viewed often and the time since the last view.
+
+Tests were added to certify uniqueness of columns and that data wasn't missing from critical columns.
+**I don't know how to ensure that the tests are passing regularly. If you know, please comment in the review.**
+
+!['DAG image](dbt-dag.png)
+
+Reflection questions in Slack submission post.
+
 ### Week 1
 
 * How many users do we have:
