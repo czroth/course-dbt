@@ -8,12 +8,15 @@ sources:
       database: false
       schema: false
       identifier: false
-    # freshness:
-    #   warn_after: {count: 24, period: hour}
-    #   error_after: {count: 48, period: hour}
+    freshness:
+      warn_after: {count: 24, period: hour}
+      error_after: {count: 48, period: hour}
     tables:
       - name: addresses
+        description: >
+          Contains address metadata
       - name: events
+        loaded_at_field: created_at_utc
       - name: orders
       - name: order_items
       - name: products
