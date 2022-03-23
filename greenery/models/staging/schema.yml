@@ -13,6 +13,9 @@ models:
         description: "Address GUID."
         tests:
           - not_null
+          - relationships:
+              to: ref('stg_addresses')
+              field: address_guid
       - name: first_name
         description: "First name."
         tests:
@@ -78,7 +81,9 @@ models:
       - name: user_guid
         description: "User GUID."
         tests:
-          - not_null
+          - relationships:
+              to: ref('stg_users')
+              field: user_guid
       - name: page_url
         description: "Page URL."
         tests:
@@ -90,28 +95,40 @@ models:
       - name: event_type
         description: "Event Type."
         tests:
-          - not_null
+          - accepted_values:
+              values: ['add_to_cart', 'checkout', 'page_view', 'package_shipped']
       - name: order_guid
         description: "Order GUID."
         tests:
+          - relationships:
+              to: ref('stg_orders')
+              field: order_guid
       - name: product_guid
         description: "Product GUID."
         tests:
+          - relationships:
+              to: ref('stg_products')
+              field: product_guid
   - name: stg_order_items
     description: "Staged order items."
     columns:
       - name: order_guid
         description: "Order GUID. The primary key for this table."
         tests:
-          - not_null
+          - relationships:
+              to: ref('stg_orders')
+              field: order_guid
       - name: product_guid
         description: "Product GUID."
         tests:
-          - not_null
+          - relationships:
+              to: ref('stg_products')
+              field: product_guid
       - name: quantity
         description: "Product quantity."
         tests:
           - not_null
+          - non_negative_values
   - name: stg_orders
     description: "Staged orders."
     columns:
@@ -123,14 +140,18 @@ models:
       - name: user_guid
         description: "User GUID."
         tests:
-          - not_null
+          - relationships:
+              to: ref('stg_users')
+              field: user_guid
       - name: promo_type
         description: "Promo Type."
         tests:
       - name: address_guid
         description: "Address GUID."
         tests:
-          - not_null
+          - relationships:
+              to: ref('stg_addresses')
+              field: address_guid
       - name: created_at_utc
         description: "Order creation time (UTC)."
         tests:
@@ -178,10 +199,12 @@ models:
         description: "Price."
         tests:
           - not_null
+          - non_negative_values
       - name: inventory
         description: "Inventory"
         tests:
           - not_null
+          - non_negative_values
   - name: stg_promos
     description: "Staged promos."
     columns:
@@ -194,6 +217,7 @@ models:
         description: "Discount amount."
         tests:
           - not_null
+          - non_negative_values
       - name: status
         description: "Status."
         tests:
