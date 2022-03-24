@@ -1,3 +1,9 @@
+{{ config(
+    indexes=[
+      {'columns': ['user_guid'], 'unique': True},
+    ]
+)}}
+
 select 
     user_id as user_guid,
     address_id as address_guid,

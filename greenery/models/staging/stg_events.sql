@@ -1,3 +1,10 @@
+{{ config(
+    indexes=[
+      {'columns': ['event_guid'], 'unique': True},
+      {'columns': ['event_type', 'session_guid', 'product_guid']},
+    ]
+)}}
+
 select 
     event_id as event_guid,
     session_id as session_guid,

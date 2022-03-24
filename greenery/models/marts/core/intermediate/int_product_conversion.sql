@@ -1,5 +1,3 @@
-{{ config(materialized='table') }}
-
 with page_viewed as (
   select
     product_guid,
