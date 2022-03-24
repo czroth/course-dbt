@@ -4,6 +4,8 @@
 
 ### Week 3
 
+#### Part 1
+
 Session conversion rate:
 ```sql
 select sum(checkout)::float / count(*) as conversion_rate
@@ -50,6 +52,24 @@ Snake Plant | 39.7
 Spider Plant | 47.5
 String of pearls | 60.0
 ZZ Plant | 52.3
+
+#### Part 2
+
+I added a few test macros, and a macro to convert values to a percent.
+
+#### Part 3
+
+Done, but not fully understood.
+
+#### Part 4
+
+Done, and made use of the dbt_utils `pivot` macro.
+
+#### Part 5
+
+Check out `marts/core/intermediate/dim_sessions.sql` for the `pivot` macro.
+`greenery/models/marts/product/product_view_facts.sql` for my hand-crafted macro.
+Any of the staged tables for index addition.
 
 ### Week 2
 
