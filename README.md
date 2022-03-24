@@ -2,6 +2,55 @@
 
 ## Assignments
 
+### Week 3
+
+Session conversion rate:
+```sql
+select sum(checkout)::float / count(*) as conversion_rate
+from dbt_chris_r_reporting.dim_sessions
+```
+0.6245674740484429
+
+Product conversion rate:
+```sql
+select name, round(conversion_percent::decimal,1)
+from dbt_chris_r.product_view_facts as conversion_percent
+order by name
+```
+
+Name | Conversion (%)
+--- | ---
+Alocasia Polly | 38.9
+Aloe Vera | 49.2
+Angel Wings Begonia | 38.7
+Arrow Head | 54.7
+Bamboo | 52.2
+Bird of Paradise | 45.0
+Birds Nest Fern | 41.3
+Boston Fern | 41.3
+Cactus | 54.5
+Calathea Makoyana | 50.9
+Devil's Ivy | 48.9
+Dragon Tree | 46.8
+Ficus | 42.6
+Fiddle Leaf Fig | 47.5
+Jade Plant | 47.8
+Majesty Palm | 47.8
+Money Tree | 46.4
+Monstera | 51.0
+Orchid | 45.3
+Peace Lily | 40.3
+Philodendron | 47.6
+Pilea Peperomioides | 45.2
+Pink Anthurium | 41.9
+Ponytail Palm | 39.4
+Pothos | 32.8
+Rubber Plant | 50.0
+Snake Plant | 39.7
+Spider Plant | 47.5
+String of pearls | 60.0
+ZZ Plant | 52.3
+
 ### Week 2
 
 Repeat user rate:

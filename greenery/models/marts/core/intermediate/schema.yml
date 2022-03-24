@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: dim_sessions
+    description: "Session / event type pivot table."
+    columns:
+      - name: session_guid
+        description: "Session GUID. The primary key for this table."
+        tests:
+          - unique
+      - name: page_view
+        description: "Number of page views in this session."
+        tests:
+          - positive_values
+      - name: add_to_cart
+        description: "Number of items added to cart in this session."
+        tests:
+          - non_negative_values
+      - name: checkout
+        description: "Checkouts in this session."
+        tests:
+          - accepted_values:
+              values: [0, 1]
+      - name: package_shipped
+        description: "Package shipped for session."
+        tests:
+          - accepted_values:
+              values: [0, 1]
