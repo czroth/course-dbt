@@ -1,0 +1,13 @@
+version: 2
+
+exposures:
+  - name: Product Funnel Dashboard
+    description: Dashboard of Greenery's conversion funnel statistics.
+    tags: ['marketing']
+    type: dashboard
+    owner:
+      name: Chris Roth
+      email: chris@preteckt.com
+    depends_on:
+      - ref('product_funnel')
+      - ref('product_funnel_percents')
