@@ -2,6 +2,42 @@
 
 ## Assignments
 
+### Week 4
+
+#### Part 1
+
+```sql
+select *
+from snapshots.orders_snapshot
+where order_guid in (
+  '914b8929-e04a-40f8-86ee-357f2be3a2a2',
+  '05202733-0e17-4726-97c2-0520c024ab85',
+  '939767ac-357a-4bec-91f8-a7b25edd46c9'
+)
+```
+
+order_guid | shipping_service | estimated_delivery_at_utc | status
+--- | --- | --- | ---
+05202733-0e17-4726-97c2-0520c024ab85 |  |  | preparing
+05202733-0e17-4726-97c2-0520c024ab85 | ups | 2021-02-19 10:15:26 | shipped
+914b8929-e04a-40f8-86ee-357f2be3a2a2 |  |  | preparing
+914b8929-e04a-40f8-86ee-357f2be3a2a2 | ups | 2021-02-19 10:15:26 | shipped
+939767ac-357a-4bec-91f8-a7b25edd46c9 |  |  | preparing
+939767ac-357a-4bec-91f8-a7b25edd46c9 | ups | 2021-02-19 10:15:26 | shipped
+
+#### Part 2
+
+Our funnel statistics can be derived from the `product_funnel` view and `product_funnel_percents` view.
+
+The funnel levels were defined as:
+
+`session -> item added to cart -> checkout`
+
+Specifically,
+* the overall conversion rate is *62.46%.*
+* the dropoff between sessions and cart adds is *19.20%.*
+* the dropoff between cart adds and checkouts is *22.70%,* and represents the biggest loss in our funnel.
+
 ### Week 3
 
 #### Part 1
