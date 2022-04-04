@@ -34,9 +34,34 @@ The funnel levels were defined as:
 `session -> item added to cart -> checkout`
 
 Specifically,
-* the overall conversion rate is *62.46%.*
-* the dropoff between sessions and cart adds is *19.20%.*
-* the dropoff between cart adds and checkouts is *22.70%,* and represents the biggest loss in our funnel.
+* the overall conversion rate is **62.46%.**
+* the dropoff between sessions and cart adds is **19.20%.**
+* the dropoff between cart adds and checkouts is **22.70%,** and represents the biggest loss in our funnel.
+
+#### Part 3
+
+**A.**
+
+My dbt pitch:
+
+dbt is the tool that allows for structured growth to your company's data.
+Without dbt it is difficult to grow your data beyond the number of tables one or two data engineers can keep track of in their heads (~50).
+dbt gives you the tools to properly structure your data from ingestion to business intelligence in a clean, version controlled system.
+
+Recommendations:
+
+Start with some data / models that can be easily moved to dbt and that will quickly yield an MVP business intelligence insight.
+Show the data engineering team how easy that was to set up and how manageable it is between the model layers and the DAG.
+Show the C-level the resulting BI exposures and how they can be confident in the data based on the fact that the data pipeline is fully defined and auditable.
+
+Skills picked up:
+I had no dbt skills at all prior to this course.
+Through this course, I've built a layer of Analytics Engineering that will compliment my existing Data Science skills.
+This gives me the confidence to help plan out and build a BI pipeline for our organization.
+
+**B.**
+
+No need to re-invent the wheel here. Co-worker, and fellow dbt classmate @onegules has outlined an answer to this question that is a good place to start our discussion at Preteckt [here](https://github.com/onegules/course-dbt/blob/main/greenery/Week4_README.md).
 
 ### Week 3
 
